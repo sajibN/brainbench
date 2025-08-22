@@ -1,0 +1,143 @@
+:root{
+  --accent: #4a90e2;
+  --bg: #f4f7fb;
+  --card: #fff;
+  --text: #222;
+}
+*{box-sizing:border-box}
+body{
+  font-family: Inter, system-ui, Arial, sans-serif;
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  transition:background .25s,color .25s;
+}
+body.dark-mode{
+  --bg: #0f1720;
+  --card: #0b1120;
+  --text: #e6eef8;
+}
+
+/* navbar */
+.topnav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 18px;background:linear-gradient(90deg,var(--accent),#2d7acb);
+  color:#fff;position:sticky;top:0;z-index:1000;
+}
+.brand{font-weight:700;font-size:1.15rem}
+.nav-links{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;padding:8px 10px;border-radius:8px}
+.nav-links a:hover{background:rgba(255,255,255,0.12)}
+.nav-right{display:flex;align-items:center;gap:10px}
+
+/* layout */
+.container{max-width:1100px;margin:28px auto;padding:0 16px}
+.card{
+  background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 28px rgba(20,30,50,0.06);
+  transition:background .25s;
+}
+
+/* forms */
+.form-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+input[type="text"], select, input[type="datetime-local"], textarea{
+  padding:12px;border-radius:8px;border:1px solid #d6ddea;background:transparent;
+  min-width:0;font-size:15px;width:100%;
+}
+button.primary{
+  background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;
+}
+.button-ghost{background:transparent;border:1px solid #cfdbe9;padding:8px;border-radius:8px;color:var(--text)}
+
+/* join section */
+.join-wrap{display:grid;place-items:center;padding:36px 0}
+.join-card{max-width:520px;width:100%}
+
+/* question list */
+.question-list{display:grid;gap:8px;max-height:360px;overflow:auto;padding:8px;border-radius:8px;border:1px dashed #e0e8f5}
+.q-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:6px;background:rgba(0,0,0,0.02)}
+
+/* exam */
+.exam-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.timer{font-weight:700;color:var(--accent)}
+
+/* responsive */
+@media (max-width:860px){
+  .nav-links{display:none;position:absolute;top:60px;right:12px;background:linear-gradient(90deg,var(--accent),#2d7acb);padding:12px;border-radius:8px}
+  .nav-links.open{display:flex;flex-direction:column}
+  .burger{display:block;cursor:pointer}
+}
+.burger{display:none}
+.burger span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;border-radius:2px}
+
+/* small tweaks */
+.card + .card{margin-top:16px}
+a.button-ghost{text-decoration:none;display:inline-block}
+
+/* NAVBAR (add/replace relevant part in style.css) */
+.topnav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 18px;
+  background:linear-gradient(90deg,var(--accent),#2d7acb);
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+/* main links */
+.nav-links{
+  display:flex;
+  gap:12px;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.nav-links li a{
+  color:#fff;
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:8px;
+}
+.nav-links li a:hover{ background:rgba(255,255,255,0.08); }
+
+/* burger button (hidden on desktop) */
+.burger{
+  display:none;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  padding:8px;
+}
+.burger span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:#fff;
+  margin:4px 0;
+  border-radius:2px;
+}
+
+/* small screens: hide normal links, show burger and a dropdown */
+@media (max-width:860px){
+  .nav-links{
+    display:none; /* hidden by default on mobile */
+    position:absolute;
+    top:62px; /* below navbar */
+    right:12px;
+    background:linear-gradient(90deg,var(--accent),#2d7acb);
+    padding:12px;
+    border-radius:8px;
+    flex-direction:column;
+    width:calc(100% - 24px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+  }
+  .nav-links.open{
+    display:flex;
+  }
+  .burger{ display:block; }
+}
+
+/* ensure nav-right items aligned */
+.nav-right{ display:flex; align-items:center; gap:8px; }
