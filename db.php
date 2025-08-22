@@ -1,7 +1,7 @@
 <?php
-$servername = "brainbench-server.mysql.database.azure.com";
-$username = "bxydgutnrg";
-$password = "bSlKoKioZ$5qzx$7";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "brainbench";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
